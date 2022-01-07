@@ -1,0 +1,21 @@
+.list{
+    background-color: #DDD;
+    min-height:400px;
+    max-height:600px;
+    margin-top:40px;
+    .list__header{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #CCC;
+        display:flex;
+
+        a{
+            display:flex;
+            align-items: center;
+            margin-left:10px;
+            text-decoration: none;
+
+        }
+        justify-content:flex-end;
+    }
+}

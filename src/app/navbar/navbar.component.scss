@@ -1,0 +1,16 @@
+.navbar{
+    background-color: #CCC;
+    height:90px;
+    font-size: 25px;
+    .navbar__logo{
+        font-size: 30px;
+    }
+    .navbar__item{
+        a{
+            &:hover{
+                border-bottom: 2px solid black;
+                padding-bottom: 4px;
+            }
+        }
+    }
+}
