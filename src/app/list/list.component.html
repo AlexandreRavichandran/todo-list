@@ -8,8 +8,9 @@
             <option value="">Categorie 2</option>
         </select>
         <a href="#">Voir les archives</a>
+        <button (click)="task.displayTask()" class="btn-success"><i class="bi bi-plus"></i></button>
     </div>
     <div class="list__content">
-        
+        <task #task></task>
     </div>
 </div>

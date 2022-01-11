@@ -1,0 +1,52 @@
+.task{
+    border: 2px solid #CCC;
+    margin-top:10px;
+    padding: 15px;
+    .task__name{
+        font-size: 21px;
+        margin:0;
+    }
+    .task__options{
+        display:flex;
+        .task__category{
+            margin:0;
+            margin-right:30px;
+            display:flex;
+            align-items: center;
+        }
+        button{
+            margin-right:13px;
+        }
+    }
+    .task__progress__bar{
+        .progress{
+            height:5px;
+            margin-top: 15px;
+            background-color: #BBB;
+            .progress-bar{
+            background-color:red;
+            }
+        }
+    }
+}
+
+.task__status__done{
+    .task__name{
+        text-decoration: line-through;
+    }
+}
+.task__status__archived{
+    .task__name{
+        font-weight: bold;   
+    }
+    .task__progress__bar{
+        .progress{
+            height:5px;
+            margin-top: 15px;
+        }
+        .progress, .progress-bar{
+            background-color: #BBB;
+            color:#BBB;
+        }
+    }
+}

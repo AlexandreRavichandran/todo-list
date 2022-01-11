@@ -1,0 +1,15 @@
+<div  *ngFor="let task of tasks" class="task">
+    <div class="d-flex justify-content-between" [class]="setStatusClass(task.progress)">
+        <p class="task__name">{{task.name}}</p>
+        <div class="task__options">
+            <p class="task__category">{{task.category}}</p>
+            <button class="btn-warning p-2"><i class="bi bi-pencil-fill"></i></button>
+            <button (click)="deleteTask(task)" class="btn-danger p-2"><i class="bi bi-trash-fill"></i></button>
+        </div>
+    </div>
+    <div class="task__progress__bar">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width.%]="task.progress"></div>
+        </div>
+    </div>
+</div>
