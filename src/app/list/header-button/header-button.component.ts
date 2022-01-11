@@ -2,9 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'header-button',
-  template: `
-        <button class="btn-primary">{{name}}</button>
-  `,
+  templateUrl:'./header-button.component.html',
   styleUrls: ['./header-button.component.scss']
 })
 export class HeaderButtonComponent implements OnInit {

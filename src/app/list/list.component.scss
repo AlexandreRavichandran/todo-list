@@ -19,4 +19,28 @@
         }
         justify-content:flex-end;
     }
+    .button__add__task{
+        border-radius: 50%;
+        width: 40px;
+        background-color: #1b5823;
+        font-weight: bold;
+        color:white;
+        border:1px white solid;
+        margin-right:10px;
+        &:hover{
+            background-color: #2f993d;
+        }
+    }
+    .first__task{
+        animation: changeColor 1.5s linear infinite alternate both;
+        @keyframes changeColor {
+            0% {
+                background-color: #1b5823;
+            }
+            100%{
+                background-color: rgb(214, 207, 207);
+            }
+        }
+    }
+
 }

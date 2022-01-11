@@ -8,7 +8,10 @@
             <option value="">Categorie 2</option>
         </select>
         <a href="#">Voir les archives</a>
-        <button (click)="task.displayTask()" class="btn-success"><i class="bi bi-plus"></i></button>
+        <button [class.first__task]="task.addClassIfEmpty()" (click)="task.displayTask()" class="button__add__task"><i class="bi bi-plus"></i></button>
+    </div>
+    <div class="d-flex justify-content-end">
+        <notice-message *ngIf="task.addClassIfEmpty()"></notice-message>
     </div>
     <div class="list__content">
         <task #task></task>

@@ -7,6 +7,8 @@ import { ListComponent } from './list/list.component';
 import { HeaderButtonComponent } from './list/header-button/header-button.component';
 import { TaskComponent } from './task/task.component';
 import { TaskService } from './services/task.service';
+import { FormsModule } from '@angular/forms';
+import { NoticeMessageComponent } from './list/notice-message/notice-message.component';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { TaskService } from './services/task.service';
     HeaderComponent,
     ListComponent,
     HeaderButtonComponent,
-    TaskComponent
+    TaskComponent,
+    NoticeMessageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [TaskService],
   bootstrap: [RootComponent]

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { takeLast } from 'rxjs';
 import { TaskService } from '../services/task.service';
 import { Task } from './task';
 @Component({
@@ -8,6 +9,7 @@ import { Task } from './task';
 })
 export class TaskComponent implements OnInit {
   tasks: Task[] = [];
+  taskEdit!: any;
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
@@ -36,6 +38,24 @@ export class TaskComponent implements OnInit {
     this.taskService.addTask(task).subscribe(tasks => this.tasks = tasks);
   }
   addTask(): void {
-    
+
+  }
+
+  changeName(task: Task): void {
+    this.taskEdit = task;
+    console.log('ok');
+  }
+
+  submitTaskEdit(value: any, task: Task): void {
+    task.name = value.name;
+    this.taskService.editTask(task).subscribe(() => this.taskEdit = undefined);
+
+  }
+
+  addClassIfEmpty() {
+    if (this.tasks.length) {
+      return false;
+    }
+    return true;
   }
 }
