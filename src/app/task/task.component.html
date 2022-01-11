@@ -15,17 +15,16 @@
         </div>
     </div>
     <div *ngIf="taskEdit && taskEdit.id === task.id" class="d-flex justify-content-between">
-        <form class="task__edit__form row d-flex justify-content-between" #taskForm="ngForm" (ngSubmit)="submitTaskEdit(taskForm.value, taskEdit)">
+        <form class="task__edit__form row d-flex justify-content-between" #taskForm="ngForm"
+            (ngSubmit)="submitTaskEdit(taskForm.value, taskEdit)">
             <div class="col-7 d-flex justify-content-center">
-                <input type="text" [(ngModel)]="taskEdit.name" #name="ngModel" name="name"
-                    class="task__edit__name" />
+                <input type="text" [(ngModel)]="taskEdit.name" #name="ngModel" name="name" class="task__edit__name" />
             </div>
             <div class="col-3 d-flex justify-content-center">
                 <div class="task__options">
-                    <select class="task__category">
-                        <option value="">Categorie 1</option>
-                        <option value="">Categorie 2</option>
-                        <option value="">Categorie 3</option>
+                    <select class="task__category" [(ngModel)]="taskEdit.category" name="category">
+                        <option value="">Choisir une catégorie</option>
+                        <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
                     </select>
                     <button class="btn-warning p-2"><i class="bi bi-check"></i></button>
                 </div>

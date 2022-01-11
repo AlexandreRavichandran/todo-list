@@ -3,9 +3,9 @@
         <header-button [name]="'Toutes'"></header-button>
         <header-button [name]="'Completes'"></header-button>
         <header-button [name]="'Incompletes'"></header-button>
-        <select name="" id="">
-            <option value="">Categorie 1</option>
-            <option value="">Categorie 2</option>
+        <select name="" id="" >
+            <option value="">Choisir une catégorie</option>
+            <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
         </select>
         <a href="#">Voir les archives</a>
         <button [class.first__task]="task.addClassIfEmpty()" (click)="task.displayTask()" class="button__add__task"><i class="bi bi-plus"></i></button>

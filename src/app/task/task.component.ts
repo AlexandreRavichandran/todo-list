@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { takeLast } from 'rxjs';
+import { Category } from '../category';
+import { CategoryService } from '../services/category.service';
 import { TaskService } from '../services/task.service';
 import { Task } from './task';
 @Component({
@@ -9,11 +11,14 @@ import { Task } from './task';
 })
 export class TaskComponent implements OnInit {
   tasks: Task[] = [];
+  categories: Category[] = [];
   taskEdit!: any;
-  constructor(private taskService: TaskService) { }
+
+  constructor(private taskService: TaskService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
   setStatusClass(percentage: number): [string] {
@@ -43,11 +48,11 @@ export class TaskComponent implements OnInit {
 
   changeName(task: Task): void {
     this.taskEdit = task;
-    console.log('ok');
   }
 
   submitTaskEdit(value: any, task: Task): void {
     task.name = value.name;
+    task.category = value.category;
     this.taskService.editTask(task).subscribe(() => this.taskEdit = undefined);
 
   }
