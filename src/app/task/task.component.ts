@@ -17,7 +17,7 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+    this.showAllTasks();
     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
@@ -42,6 +42,7 @@ export class TaskComponent implements OnInit {
     }
     this.taskService.addTask(task).subscribe(tasks => this.tasks = tasks);
   }
+
   addTask(): void {
 
   }
@@ -62,5 +63,22 @@ export class TaskComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  showArchived(): void {
+    this.taskService.getArchived().subscribe(tasks => this.tasks = tasks);
+  }
+
+  showIncomplete(): void {
+    this.taskService.getByProgress('incomplete').subscribe(tasks => this.tasks = tasks);
+  }
+
+  showComplete(): void {
+    this.taskService.getByProgress('complete').subscribe(tasks => this.tasks = tasks);
+    console.log(this.tasks);
+  }
+
+  showAllTasks(): void {
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
 }

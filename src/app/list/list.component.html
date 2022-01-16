@@ -1,13 +1,13 @@
 <div class="container list">
     <div class="list__header">
-        <header-button [name]="'Toutes'"></header-button>
-        <header-button [name]="'Completes'"></header-button>
-        <header-button [name]="'Incompletes'"></header-button>
+        <header-button (click)="task.showAllTasks()" [name]="'Toutes'"></header-button>
+        <header-button (click)="task.showComplete()" [name]="'Completes'"></header-button>
+        <header-button (click)="task.showIncomplete()" [name]="'Incompletes'"></header-button>
         <select name="" id="" >
             <option value="">Choisir une catégorie</option>
             <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
         </select>
-        <a href="#">Voir les archives</a>
+        <a (click)="task.showArchived()" href="#">Voir les archives</a>
         <button [class.first__task]="task.addClassIfEmpty()" (click)="task.displayTask()" class="button__add__task"><i class="bi bi-plus"></i></button>
     </div>
     <div class="d-flex justify-content-end">
