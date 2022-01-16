@@ -21,6 +21,9 @@ export class TaskComponent implements OnInit {
     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
+  filterByCategory(value: string): void {
+    this.taskService.getByCategory(value).subscribe(tasks => this.tasks = tasks);
+  }
   setStatusClass(percentage: number): [string] {
     if (percentage === 100) {
       return ['task__status__done'];

@@ -82,4 +82,9 @@ export class TaskService {
     }
     return of();
   }
+
+  getByCategory(category: string): Observable<Task[]> {
+    let tasks = this.TASKS.filter(taskElement => taskElement.category === category);
+    return of(tasks);
+  }
 }

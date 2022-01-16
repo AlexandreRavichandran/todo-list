@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { CategoryService } from '../services/category.service';
 import { TaskService } from '../services/task.service';
-import { Task } from '../task/task';
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',

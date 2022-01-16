@@ -3,7 +3,7 @@
         <header-button (click)="task.showAllTasks()" [name]="'Toutes'"></header-button>
         <header-button (click)="task.showComplete()" [name]="'Completes'"></header-button>
         <header-button (click)="task.showIncomplete()" [name]="'Incompletes'"></header-button>
-        <select name="" id="" >
+        <select #category (change)="task.filterByCategory(category.value)" name="" id="" >
             <option value="">Choisir une catégorie</option>
             <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
         </select>
