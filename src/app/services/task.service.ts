@@ -13,7 +13,7 @@ export class TaskService {
       id: 1,
       name: "Task 1",
       category: "Category 1",
-      progress: 0,
+      progress: 100,
       archived: true
     },
     {
@@ -42,7 +42,7 @@ export class TaskService {
       id: 5,
       name: "Task 5",
       category: "Category 1",
-      progress: 60,
+      progress: 100,
       archived: true
     },
   ]
@@ -63,7 +63,7 @@ export class TaskService {
   }
 
   addTask(task: Task): Observable<Task[]> {
-    this.TASKS.push(task)
+    this.TASKS.unshift(task)
     return of(this.TASKS);
   }
 
@@ -74,7 +74,7 @@ export class TaskService {
 
   getByProgress(progress: string): Observable<Task[]> {
     if (progress === 'incomplete') {
-      const tasks = this.TASKS.filter(taskElement => taskElement.progress !== 100);
+      const tasks = this.TASKS.filter(taskElement => taskElement.progress !== 100 && taskElement.archived === false);
       return of(tasks);
     } else if (progress === 'complete') {
       const tasks = this.TASKS.filter(taskElement => taskElement.progress === 100);
@@ -86,5 +86,16 @@ export class TaskService {
   getByCategory(category: string): Observable<Task[]> {
     let tasks = this.TASKS.filter(taskElement => taskElement.category === category);
     return of(tasks);
+  }
+
+  archive(id: number): Observable<Task> {
+    console.log(id);
+    const taskToArchive = this.TASKS.find(task => task.id === id);
+    if (taskToArchive) {
+      taskToArchive.archived = true;
+      taskToArchive.progress = 100;
+      return of(taskToArchive);
+    }
+    return of();
   }
 }

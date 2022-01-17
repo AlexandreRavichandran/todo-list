@@ -84,4 +84,8 @@ export class TaskComponent implements OnInit {
   showAllTasks(): void {
     this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
   }
+
+  archiveTask(id:number):void{
+   this.taskService.archive(id).subscribe();
+  }
 }

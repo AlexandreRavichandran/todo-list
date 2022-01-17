@@ -4,6 +4,7 @@
             <p (dblclick)="changeName(task)" class="task__name">{{task.name}}</p>
             <div class="task__options">
                 <p class="task__category">{{task.category}}</p>
+                <button (click)="archiveTask(task.id)" class="btn-success p-2"><i class="bi bi-check"></i></button>
                 <button (click)="changeName(task)" class="btn-warning p-2"><i class="bi bi-pencil-fill"></i></button>
                 <button (click)="deleteTask(task)" class="btn-danger p-2"><i class="bi bi-trash-fill"></i></button>
             </div>
