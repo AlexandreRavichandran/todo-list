@@ -9,6 +9,7 @@ import { TaskComponent } from './task/task.component';
 import { TaskService } from './services/task.service';
 import { FormsModule } from '@angular/forms';
 import { NoticeMessageComponent } from './list/notice-message/notice-message.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NoticeMessageComponent } from './list/notice-message/notice-message.com
     ListComponent,
     HeaderButtonComponent,
     TaskComponent,
-    NoticeMessageComponent
+    NoticeMessageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -9,42 +9,6 @@ export class TaskService {
   constructor() { }
 
   TASKS: Task[] = [
-    {
-      id: 1,
-      name: "Task 1",
-      category: "Category 1",
-      progress: 100,
-      archived: true
-    },
-    {
-      id: 2,
-      name: "Task 2",
-      category: "Category 2",
-      progress: 20,
-      archived: false,
-
-    },
-    {
-      id: 3,
-      name: "Task 3",
-      category: "Category 2",
-      progress: 40,
-      archived: false
-    },
-    {
-      id: 4,
-      name: "Task 4",
-      category: "Category 2",
-      progress: 100,
-      archived: true
-    },
-    {
-      id: 5,
-      name: "Task 5",
-      category: "Category 1",
-      progress: 100,
-      archived: true
-    },
   ]
 
   getTasks(): Observable<Task[]> {
@@ -89,7 +53,6 @@ export class TaskService {
   }
 
   archive(id: number): Observable<Task> {
-    console.log(id);
     const taskToArchive = this.TASKS.find(task => task.id === id);
     if (taskToArchive) {
       taskToArchive.archived = true;
